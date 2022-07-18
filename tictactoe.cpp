@@ -37,7 +37,7 @@ cout<<"[ ][ ][ ]\n[ ][ ][ ]\n[ ][ ][ ]";
             {
                 do{
                 cout<<endl<<name2<<" Please enter your choice:";
-                cin>>p;        system("CLS");
+                cin>>p;        system("clear");
 
                 }
                 while(count(vec.begin(), vec.end(), p) != 0);
