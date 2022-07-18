@@ -116,6 +116,5 @@ cout<<"[ ][ ][ ]\n[ ][ ][ ]\n[ ][ ][ ]";
         }
         n+=1;b+=1;
     }while(n<10)  ; 
-system("Pause");
     return 0;
 }
