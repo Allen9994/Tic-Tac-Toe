@@ -18,6 +18,7 @@ int main()
     cout<<"\nPLAYER2:";
     getline(cin,name2);
     if(name1 == ""){name1 = "A";}if(name2 == ""){name2 = "B";}
+cout<<"[ ][ ][ ]\n[ ][ ][ ]\n[ ][ ][ ]";
     do
     {
         do
@@ -26,7 +27,8 @@ int main()
             {
                 do{
                 cout<<endl<<name1<<" Please enter your choice:";
-                cin>>p;
+                cin>>p;        system("CLS");
+
                 }
                 while(count(vec.begin(), vec.end(), p) != 0);
                 vec.push_back(p);k[n]=p;
@@ -35,7 +37,8 @@ int main()
             {
                 do{
                 cout<<endl<<name2<<" Please enter your choice:";
-                cin>>p;
+                cin>>p;        system("CLS");
+
                 }
                 while(count(vec.begin(), vec.end(), p) != 0);
                 vec.push_back(p);k[n]=p;
@@ -111,8 +114,8 @@ int main()
         {
             cout<<endl<<name2<<" WINS ";break;
         }
-        
         n+=1;b+=1;
     }while(n<10)  ; 
+system("Pause");
     return 0;
 }
