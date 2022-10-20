@@ -2,21 +2,28 @@
 #include<time.h>
 #include<string>
 #include<vector>
+#include<random>
 #include<bits/stdc++.h>
+#include <stdio.h>      /* printf, scanf, puts, NULL */
+#include <stdlib.h>     /* srand, rand */
+
 
 using namespace std;
 
 int main()
 {
+    srand (time(NULL));
     int i,j,x=1,k[9] = {0},y[20],z[20],a[3][3],n=1,b=0;
     vector <int> vec={0};
-    int p;
+    vector <int> vic={1,2,3,4,5,6,7,8,9};
+    
+    int p,r = 0,choice;
     string name1= "A",name2 = "B";
     cout<<"WELCOME TO TIC-TAC-TOE";
-    cout<<"\nENTER YOUR NAME\nPLAYER1:";
-    getline(cin,name1);
-    cout<<"\nPLAYER2:";
-    getline(cin,name2);
+    cout<<"\nDo you want to play against player or against PC?\nPress 1 for v/s player\nPress 2 for v/s PC";
+    cin>>choice;
+    choice = choice % 2;
+    vector<int>::iterator new_end;
     if(name1 == ""){name1 = "A";}if(name2 == ""){name2 = "B";}
 cout<<"[ ][ ][ ]\n[ ][ ][ ]\n[ ][ ][ ]";
     do
@@ -26,22 +33,36 @@ cout<<"[ ][ ][ ]\n[ ][ ][ ]\n[ ][ ][ ]";
             if(b%2==0)
             {
                 do{
-                cout<<endl<<name1<<" Please enter your choice:";
-                cin>>p;        system("clear");
-
+                    cout<<endl<<name1<<" Please enter your choice:";
+                    cin>>p;        system("clear");
                 }
                 while(count(vec.begin(), vec.end(), p) != 0);
+                
                 vec.push_back(p);k[n]=p;
+                
+                new_end = remove(vic.begin(), vic.end(), p);
             }
             else
             {
-                do{
-                cout<<endl<<name2<<" Please enter your choice:";
-                cin>>p;        system("clear");
-
+                if(choice == 1)
+                {
+                    do{
+                        cout<<endl<<name2<<" Please enter your choice:";
+                        cin>>p;        system("clear");
+    
+                    }
+                    while(count(vec.begin(), vec.end(), p) != 0);
+                    vec.push_back(p);k[n]=p;
+                    }
+                else
+                {
+                    int siz = vic.size() - vec.size() + 1;
+                    int y = rand() % siz;
+                    p = vic[y];
+                    vec.push_back(p);k[n]=p;
+                    new_end = remove(vic.begin(), vic.end(), p);
+                    system("clear");
                 }
-                while(count(vec.begin(), vec.end(), p) != 0);
-                vec.push_back(p);k[n]=p;
             }
             if(k[n]>6)
             {
@@ -59,6 +80,7 @@ cout<<"[ ][ ][ ]\n[ ][ ][ ]\n[ ][ ][ ]";
         x+=1;
         y[n]=k[n]/3;
         z[n]=k[n]%3;
+        system("clear");
         for(i=0;i<3;i++)
         {  
             cout<<endl;
