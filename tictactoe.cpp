@@ -7,7 +7,6 @@
 #include <stdio.h>      /* printf, scanf, puts, NULL */
 #include <stdlib.h>     /* srand, rand */
 
-
 using namespace std;
 
 int main()
@@ -60,7 +59,6 @@ cout<<"[ ][ ][ ]\n[ ][ ][ ]\n[ ][ ][ ]";
                     do{
                         cout<<endl<<name2<<" Please enter your choice:";
                         cin>>p;        system("clear");
-    
                     }
                     while(count(vec.begin(), vec.end(), p) != 0);
                     vec.push_back(p);k[n]=p;
@@ -73,7 +71,6 @@ cout<<"[ ][ ][ ]\n[ ][ ][ ]\n[ ][ ][ ]";
                     p = vic[y];
                     vec.push_back(p);k[n]=p;
                     new_end = remove(vic.begin(), vic.end(), p);
-                    //system("clear");
                 }
                 else if(choice == 3)
                 {
@@ -107,17 +104,13 @@ cout<<"[ ][ ][ ]\n[ ][ ][ ]\n[ ][ ][ ]";
                         diagsize--;
                         cout<<"  Y"<<y<<"  P"<<y;
                         pc.push_back(p);
-                        for(i = 0;i<pc.size();i++)
-                        {
-                            cout<<pc[i];
-                        }
                         vec.push_back(p);k[n]=p;
                         new_end = remove(vic.begin(), vic.end(), p);
                         new_end = remove(diag.begin(), diag.end(), p);
                     }
                 }
                 else if(choice == 4)
-                {cout<<"HI";
+                {
                     if(count(pc.begin(),pc.end(),1) == 1 && count(pc.begin(),pc.end(),3) == 1 && count(pl.begin(),pl.end(),2) == 0){k[n]=2;}else
                     if(count(pc.begin(),pc.end(),3) == 1 && count(pc.begin(),pc.end(),7) == 1 && count(pl.begin(),pl.end(),5) == 0){k[n]=5;}else
                     if(count(pc.begin(),pc.end(),7) == 1 && count(pc.begin(),pc.end(),9) == 1 && count(pl.begin(),pl.end(),8) == 0){k[n]=8;}else
@@ -171,17 +164,11 @@ cout<<"[ ][ ][ ]\n[ ][ ][ ]\n[ ][ ][ ]";
                         int y = rand() % diagsize;
                         p = diag[y];
                         diagsize--;
-                        cout<<"  Y"<<y<<"  P"<<p<<"  ";
-                        //pc.push_back(p);
-                        for(i = 0;i<pc.size();i++)
-                        {
-                            cout<<pc[i];
-                        }
                         vec.push_back(p);k[n]=p;
                         new_end = remove(vic.begin(), vic.end(), p);
                         new_end = remove(diag.begin(), diag.end(), p);
-                    }pc.push_back(k[n]);
-                    cout<<"D";
+                    }
+                    pc.push_back(k[n]);
                     for(i = 0;i<pc.size();i++)
                         {
                             cout<<pc[i];
@@ -189,7 +176,7 @@ cout<<"[ ][ ][ ]\n[ ][ ][ ]\n[ ][ ][ ]";
                     }
                     system("clear");
                 
-            }cout<<"  P"<<k[n];
+            }
             if(k[n]>6)
             {
                 k[n]-=7;
@@ -238,10 +225,10 @@ cout<<"[ ][ ][ ]\n[ ][ ][ ]\n[ ][ ][ ]";
                 }
                 else
                 {
-                   if(a[i][j]==1)
-                   {
+                    if(a[i][j]==1)
+                    {
                         cout<<"[o]";
-                   }
+                    }
                    else
                     cout<<"[x]";
                 }
@@ -252,18 +239,29 @@ cout<<"[ ][ ][ ]\n[ ][ ][ ]\n[ ][ ][ ]";
         (a[0][0]==1&&a[1][1]==1&&a[2][2]==1)||(a[0][2]==1&&a[1][1]==1&&a[2][0]==1)||
         (a[1][0]==1&&a[1][1]==1&&a[1][2]==1)||(a[0][1]==1&&a[1][1]==1&&a[2][1 ]==1))
         {
-            cout<<endl<<name1<<" WINS  ";return 0;
-            
+            if(choice==1)
+        	{
+                cout<<endl<<name1<<" WINS \n";return 0;
+        	}else
+        	{
+        		cout<<endl<<"You WON! \n";return 0;
+        	}
         }
         if((a[0][0]==2&&a[0][1]==2&&a[0][2]==2)||(a[0][0]==2&&a[1][0]==2&&a[2][0]==2)||
         (a[0][2]==2&&a[1][2]==2&&a[2][2]==2)||(a[2][0]==2&&a[2][1]==2&&a[2][2]==2)||
         (a[0][0]==2&&a[1][1]==2&&a[2][2]==2)||(a[0][2]==2&&a[1][1]==2&&a[2][0]==2)||
         (a[1][0]==2&&a[1][1]==2&&a[1][2]==2)||(a[0][1]==2&&a[1][1]==2&&a[2][1]==2))
         {
-            cout<<endl<<name2<<" WINS ";return 0;
-        }cout<<n;
+    	if(choice==1)
+    	{
+            cout<<endl<<name2<<" WINS \n";return 0;
+    	}else
+    	{
+    		cout<<endl<<"PC"<<" WINS \n";return 0;
+    	}
+        }
         n+=1;b+=1;
     }while(n<10)  ; 
-    cout<<"\nGame tied";
+    cout<<"\nGame tied!\n";
     return 0;
 }
