@@ -144,7 +144,7 @@ cout<<"[ ][ ][ ]\n[ ][ ][ ]\n[ ][ ][ ]";
                     if(count(pc.begin(),pc.end(),8) == 1 && count(pc.begin(),pc.end(),5) == 1 && count(pl.begin(),pl.end(),2) == 0){k[n]=2;}else
                     if(count(pl.begin(),pl.end(),1) == 1 && count(pl.begin(),pl.end(),3) == 1 && count(pc.begin(),pc.end(),2) == 0){k[n]=2;}else//
                     if(count(pl.begin(),pl.end(),3) == 1 && count(pl.begin(),pl.end(),7) == 1 && count(pc.begin(),pc.end(),5) == 0){k[n]=5;}else
-                    if(count(pl.begin(),pl.end(),7) == 1 && count(pl.begin(),pl.end(),9) == 1 && count(pc.begin(),pc.end(),8) == 0){k[n]=8;}else
+                    if(count(pl.begin(),pl.end(),7) == 1 && count(pl.begin(),pl.end(),9) == 1 && count(pc.begin(),pc.end(),8) == 0){k[n]=8;cout<<"PL";}else
                     if(count(pl.begin(),pl.end(),1) == 1 && count(pl.begin(),pl.end(),7) == 1 && count(pc.begin(),pc.end(),4) == 0){k[n]=4;}else
                     if(count(pl.begin(),pl.end(),9) == 1 && count(pl.begin(),pl.end(),3) == 1 && count(pc.begin(),pc.end(),6) == 0){k[n]=6;}else
                     if(count(pl.begin(),pl.end(),9) == 1 && count(pl.begin(),pl.end(),1) == 1 && count(pc.begin(),pc.end(),5) == 0){k[n]=5;}else
@@ -171,8 +171,8 @@ cout<<"[ ][ ][ ]\n[ ][ ][ ]\n[ ][ ][ ]";
                         int y = rand() % diagsize;
                         p = diag[y];
                         diagsize--;
-                        cout<<"  Y"<<y<<"  P"<<y;
-                        pc.push_back(p);
+                        cout<<"  Y"<<y<<"  P"<<p<<"  ";
+                        //pc.push_back(p);
                         for(i = 0;i<pc.size();i++)
                         {
                             cout<<pc[i];
@@ -180,7 +180,12 @@ cout<<"[ ][ ][ ]\n[ ][ ][ ]\n[ ][ ][ ]";
                         vec.push_back(p);k[n]=p;
                         new_end = remove(vic.begin(), vic.end(), p);
                         new_end = remove(diag.begin(), diag.end(), p);
-                    }
+                    }pc.push_back(k[n]);
+                    cout<<"D";
+                    for(i = 0;i<pc.size();i++)
+                        {
+                            cout<<pc[i];
+                        }
                     }
                     //system("clear");
                 
