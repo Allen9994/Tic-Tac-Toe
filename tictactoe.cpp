@@ -25,7 +25,7 @@ int main()
     int p,r = 0,choice;
     string name1= "A",name2 = "B";
     cout<<"WELCOME TO TIC-TAC-TOE";
-    cout<<"\nDo you want to play against player or against PC?\nPress 1 for v/s player\nPress 2 for v/s PC(DUMB)\nPress 2 for v/s PC(SMART)";
+    cout<<"\nDo you want to play against player or against PC?\nPress 1 for v/s player\nPress 2 for v/s PC(DUMB)\nPress 3 for v/s PC(SMART) \nPress 4 for v/s PC(INTELLIGENT)";
     cin>>choice;
     choice = choice % 5;
     vector<int>::iterator new_end;
@@ -39,7 +39,7 @@ cout<<"[ ][ ][ ]\n[ ][ ][ ]\n[ ][ ][ ]";
             {
                 do{
                     cout<<endl<<name1<<" Please enter your choice:";
-                    cin>>p;        //system("clear");
+                    cin>>p;        system("clear");
                 }
                 while(count(vec.begin(), vec.end(), p) != 0);
                 
@@ -55,11 +55,11 @@ cout<<"[ ][ ][ ]\n[ ][ ][ ]\n[ ][ ][ ]";
             }
             else
             {
-                if(choice == 1)
+                if(choice == 1 || choice == 0)
                 {
                     do{
                         cout<<endl<<name2<<" Please enter your choice:";
-                        cin>>p;        //system("clear");
+                        cin>>p;        system("clear");
     
                     }
                     while(count(vec.begin(), vec.end(), p) != 0);
@@ -144,7 +144,7 @@ cout<<"[ ][ ][ ]\n[ ][ ][ ]\n[ ][ ][ ]";
                     if(count(pc.begin(),pc.end(),8) == 1 && count(pc.begin(),pc.end(),5) == 1 && count(pl.begin(),pl.end(),2) == 0){k[n]=2;}else
                     if(count(pl.begin(),pl.end(),1) == 1 && count(pl.begin(),pl.end(),3) == 1 && count(pc.begin(),pc.end(),2) == 0){k[n]=2;}else//
                     if(count(pl.begin(),pl.end(),3) == 1 && count(pl.begin(),pl.end(),7) == 1 && count(pc.begin(),pc.end(),5) == 0){k[n]=5;}else
-                    if(count(pl.begin(),pl.end(),7) == 1 && count(pl.begin(),pl.end(),9) == 1 && count(pc.begin(),pc.end(),8) == 0){k[n]=8;cout<<"PL";}else
+                    if(count(pl.begin(),pl.end(),7) == 1 && count(pl.begin(),pl.end(),9) == 1 && count(pc.begin(),pc.end(),8) == 0){k[n]=8;}else
                     if(count(pl.begin(),pl.end(),1) == 1 && count(pl.begin(),pl.end(),7) == 1 && count(pc.begin(),pc.end(),4) == 0){k[n]=4;}else
                     if(count(pl.begin(),pl.end(),9) == 1 && count(pl.begin(),pl.end(),3) == 1 && count(pc.begin(),pc.end(),6) == 0){k[n]=6;}else
                     if(count(pl.begin(),pl.end(),9) == 1 && count(pl.begin(),pl.end(),1) == 1 && count(pc.begin(),pc.end(),5) == 0){k[n]=5;}else
@@ -187,7 +187,7 @@ cout<<"[ ][ ][ ]\n[ ][ ][ ]\n[ ][ ][ ]";
                             cout<<pc[i];
                         }
                     }
-                    //system("clear");
+                    system("clear");
                 
             }cout<<"  P"<<k[n];
             if(k[n]>6)
@@ -206,7 +206,7 @@ cout<<"[ ][ ][ ]\n[ ][ ][ ]\n[ ][ ][ ]";
         x+=1;
         y[n]=k[n]/3;
         z[n]=k[n]%3;
-        //system("clear");
+        system("clear");
         for(i=0;i<3;i++)
         {  
             cout<<endl;
@@ -252,7 +252,7 @@ cout<<"[ ][ ][ ]\n[ ][ ][ ]\n[ ][ ][ ]";
         (a[0][0]==1&&a[1][1]==1&&a[2][2]==1)||(a[0][2]==1&&a[1][1]==1&&a[2][0]==1)||
         (a[1][0]==1&&a[1][1]==1&&a[1][2]==1)||(a[0][1]==1&&a[1][1]==1&&a[2][1 ]==1))
         {
-            cout<<endl<<name1<<" WINS  ";break;
+            cout<<endl<<name1<<" WINS  ";return 0;
             
         }
         if((a[0][0]==2&&a[0][1]==2&&a[0][2]==2)||(a[0][0]==2&&a[1][0]==2&&a[2][0]==2)||
@@ -260,9 +260,10 @@ cout<<"[ ][ ][ ]\n[ ][ ][ ]\n[ ][ ][ ]";
         (a[0][0]==2&&a[1][1]==2&&a[2][2]==2)||(a[0][2]==2&&a[1][1]==2&&a[2][0]==2)||
         (a[1][0]==2&&a[1][1]==2&&a[1][2]==2)||(a[0][1]==2&&a[1][1]==2&&a[2][1]==2))
         {
-            cout<<endl<<name2<<" WINS ";break;
+            cout<<endl<<name2<<" WINS ";return 0;
         }cout<<n;
         n+=1;b+=1;
     }while(n<10)  ; 
+    cout<<"\nGame tied";
     return 0;
 }
