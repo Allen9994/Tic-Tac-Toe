@@ -7,6 +7,7 @@
 #include <stdio.h>      /* printf, scanf, puts, NULL */
 #include <stdlib.h>     /* srand, rand */
 
+
 using namespace std;
 
 int main()
@@ -38,7 +39,7 @@ cout<<"[ ][ ][ ]\n[ ][ ][ ]\n[ ][ ][ ]";
             {
                 do{
                     cout<<endl<<name1<<" Please enter your choice:";
-                    cin>>p;        system("clear");
+                    cin>>p;        
                 }
                 while(count(vec.begin(), vec.end(), p) != 0);
                 
@@ -58,7 +59,7 @@ cout<<"[ ][ ][ ]\n[ ][ ][ ]\n[ ][ ][ ]";
                 {
                     do{
                         cout<<endl<<name2<<" Please enter your choice:";
-                        cin>>p;        system("clear");
+                        cin>>p;        
                     }
                     while(count(vec.begin(), vec.end(), p) != 0);
                     vec.push_back(p);k[n]=p;
